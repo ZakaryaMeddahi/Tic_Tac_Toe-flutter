@@ -183,18 +183,103 @@ class _BoxState extends State<Box> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          gameWinner,
-          style: const TextStyle(
-              color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
+        Container(
+          child: Row(
+            children: [
+              SizedBox(width: 35),
+              Column(
+                children: [
+                  Container(
+                    width: 85,
+                    height: 85,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Text(
+                      'X',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 38),
+                          fontFamily: GoogleFonts.montserrat().fontFamily,
+                          fontSize: 70),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    game.p1.getName(),
+                    style: TextStyle(color: Colors.white70, fontSize: 18),
+                  )
+                ],
+              ),
+              SizedBox(width: 10),
+              Container(
+                width: 40,
+                height: 40,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: Colors.white70,
+                    borderRadius: BorderRadius.circular(5)),
+                child: Text(
+                  game.p1.getScore().toString(),
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 0, 0, 38), fontSize: 30),
+                ),
+              ),
+              Spacer(),
+              Container(
+                width: 40,
+                height: 40,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: Colors.white70,
+                    borderRadius: BorderRadius.circular(5)),
+                child: Text(
+                  game.p2.getScore().toString(),
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 0, 0, 38), fontSize: 30),
+                ),
+              ),
+              SizedBox(width: 10),
+              Column(
+                children: [
+                  Container(
+                    width: 85,
+                    height: 85,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Text(
+                      'O',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 38),
+                          fontFamily: GoogleFonts.montserrat().fontFamily,
+                          fontSize: 70),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    game.p2.getName(),
+                    style: TextStyle(color: Colors.white70, fontSize: 18),
+                  )
+                ],
+              ),
+              SizedBox(width: 35)
+            ],
+          ),
         ),
-        Text(
-          roundWinner,
-          style: const TextStyle(
-              color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
-        ),
+
+        // Text(
+        //   gameWinner,
+        //   style: const TextStyle(
+        //       color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
+        // ),
+        // Text(
+        //   roundWinner,
+        //   style: const TextStyle(
+        //       color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
+        // ),
         const SizedBox(height: 50),
         Container(
           width: 240,
@@ -205,7 +290,7 @@ class _BoxState extends State<Box> {
           child: Column(
             children: [
               Container(
-                  child: Column(
+                child: Column(
                 children: [
                   SizedBox(height: 4),
                   Row(
@@ -214,12 +299,31 @@ class _BoxState extends State<Box> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            game.updateBoxState(0, 0);
-                            roundWinner = game.gameResult();
-                            gameWinner = game.endGame();
-                            // if (game.numberOfRounds != 3) {
-                            //   game.initializeRound();
-                            // }
+                            if (game.isGameEnded() == false) {
+                              game.updateBoxState(0, 0);
+                              roundWinner = game.gameResult();
+                              gameWinner = game.endGame();
+                            }
+
+                            if (game.isGameEnded() == true) {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text('Game Over'),
+                                    content: Text(gameWinner),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text('OK'),
+                                      )
+                                    ]
+                                  );
+                                }
+                              );
+                            }
                           });
                         },
                         child: Container(

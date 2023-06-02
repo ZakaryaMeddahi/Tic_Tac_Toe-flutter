@@ -18,22 +18,21 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Color.fromARGB(255, 0, 0, 38),
         body: Container(
-          alignment: Alignment.center,
           child: Column(
             children: const [
               SizedBox(
-                height: 60,
+                height: 50,
               ),
               Text(
                 'Tic Tac Toe Game',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 35,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold
                 ),
               ),
               SizedBox(
-                height: 120,
+                height: 80,
               ),
               Box()
             ],

@@ -141,7 +141,7 @@ class Game {
   }
 
   bool isGameEnded() {
-    if (numberOfRounds == 3) {
+    if (p1.getScore() == 3 || p2.getScore() == 3) {
       return true;
     }
     return false;
