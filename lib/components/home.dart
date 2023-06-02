@@ -179,6 +179,8 @@ class _BoxState extends State<Box> {
   Game game = Game();
   String roundWinner = '';
   String gameWinner = '';
+  final player1Name = TextEditingController();
+  final player2Name = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -290,7 +292,7 @@ class _BoxState extends State<Box> {
           child: Column(
             children: [
               Container(
-                child: Column(
+                  child: Column(
                 children: [
                   SizedBox(height: 4),
                   Row(
@@ -305,24 +307,22 @@ class _BoxState extends State<Box> {
                               gameWinner = game.endGame();
                             }
 
-                            if (game.isGameEnded() == true) {
+                            if (game.endGame() != '') {
                               showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: Text('Game Over'),
-                                    content: Text(gameWinner),
-                                    actions: <Widget>[
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text('OK'),
-                                      )
-                                    ]
-                                  );
-                                }
-                              );
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                        title: Text('Game Over'),
+                                        content: Text(gameWinner),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text('Continue'),
+                                          )
+                                        ]);
+                                  });
                             }
                           });
                         },
@@ -347,9 +347,29 @@ class _BoxState extends State<Box> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            game.updateBoxState(0, 1);
-                            roundWinner = game.gameResult();
-                            gameWinner = game.endGame();
+                            if(game.isGameEnded() == false) {
+                              game.updateBoxState(0, 1);
+                              roundWinner = game.gameResult();
+                              gameWinner = game.endGame();
+                            }
+
+                            if (game.endGame() != '') {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                        title: Text('Game Over'),
+                                        content: Text(gameWinner),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text('Continue'),
+                                          )
+                                        ]);
+                                  });
+                            }
                           });
                         },
                         child: Container(
@@ -370,9 +390,29 @@ class _BoxState extends State<Box> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            game.updateBoxState(0, 2);
-                            roundWinner = game.gameResult();
-                            gameWinner = game.endGame();
+                            if(game.isGameEnded() == false) {
+                              game.updateBoxState(0, 2);
+                              roundWinner = game.gameResult();
+                              gameWinner = game.endGame();
+                            }
+
+                            if (game.endGame() != '') {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                        title: Text('Game Over'),
+                                        content: Text(gameWinner),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text('Continue'),
+                                          )
+                                        ]);
+                                  });
+                            }
                           });
                         },
                         child: Container(
@@ -401,9 +441,29 @@ class _BoxState extends State<Box> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            game.updateBoxState(1, 0);
-                            roundWinner = game.gameResult();
-                            gameWinner = game.endGame();
+                            if(game.isGameEnded() == false) {
+                              game.updateBoxState(1, 0);
+                              roundWinner = game.gameResult();
+                              gameWinner = game.endGame();
+                            }
+
+                            if (game.endGame() != '') {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                        title: Text('Game Over'),
+                                        content: Text(gameWinner),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text('Continue'),
+                                          )
+                                        ]);
+                                  });
+                            }
                           });
                         },
                         child: Container(
@@ -424,9 +484,29 @@ class _BoxState extends State<Box> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            game.updateBoxState(1, 1);
-                            roundWinner = game.gameResult();
-                            gameWinner = game.endGame();
+                            if(game.isGameEnded() == false) {
+                              game.updateBoxState(1, 1);
+                              roundWinner = game.gameResult();
+                              gameWinner = game.endGame();
+                            }
+
+                            if (game.endGame() != '') {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                        title: Text('Game Over'),
+                                        content: Text(gameWinner),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text('Continue'),
+                                          )
+                                        ]);
+                                  });
+                            }
                           });
                         },
                         child: Container(
@@ -447,9 +527,29 @@ class _BoxState extends State<Box> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            game.updateBoxState(1, 2);
-                            roundWinner = game.gameResult();
-                            gameWinner = game.endGame();
+                            if(game.isGameEnded() == false) {
+                              game.updateBoxState(1, 2);
+                              roundWinner = game.gameResult();
+                              gameWinner = game.endGame();
+                            }
+
+                            if (game.endGame() != '') {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                        title: Text('Game Over'),
+                                        content: Text(gameWinner),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text('Continue'),
+                                          )
+                                        ]);
+                                  });
+                            }
                           });
                         },
                         child: Container(
@@ -475,9 +575,29 @@ class _BoxState extends State<Box> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            game.updateBoxState(2, 0);
-                            roundWinner = game.gameResult();
-                            gameWinner = game.endGame();
+                            if(game.isGameEnded() == false) {
+                              game.updateBoxState(2, 0);
+                              roundWinner = game.gameResult();
+                              gameWinner = game.endGame();
+                            }
+
+                            if (game.endGame() != '') {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                        title: Text('Game Over'),
+                                        content: Text(gameWinner),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text('Continue'),
+                                          )
+                                        ]);
+                                  });
+                            }
                           });
                         },
                         child: Container(
@@ -501,9 +621,29 @@ class _BoxState extends State<Box> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            game.updateBoxState(2, 1);
-                            roundWinner = game.gameResult();
-                            gameWinner = game.endGame();
+                            if(game.isGameEnded() == false) {
+                              game.updateBoxState(2, 1);
+                              roundWinner = game.gameResult();
+                              gameWinner = game.endGame();
+                            }
+
+                            if (game.endGame() != '') {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                        title: Text('Game Over'),
+                                        content: Text(gameWinner),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text('Continue'),
+                                          )
+                                        ]);
+                                  });
+                            }
                           });
                         },
                         child: Container(
@@ -524,9 +664,29 @@ class _BoxState extends State<Box> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            game.updateBoxState(2, 2);
-                            roundWinner = game.gameResult();
-                            gameWinner = game.endGame();
+                            if(game.isGameEnded() == false) {
+                              game.updateBoxState(2, 2);
+                              roundWinner = game.gameResult();
+                              gameWinner = game.endGame();
+                            }
+
+                            if (game.endGame() != '') {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                        title: Text('Game Over'),
+                                        content: Text(gameWinner),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text('Continue'),
+                                          )
+                                        ]);
+                                  });
+                            }
                           });
                         },
                         child: Container(
@@ -557,16 +717,70 @@ class _BoxState extends State<Box> {
         const SizedBox(
           height: 50,
         ),
-        ElevatedButton(
-            onPressed: () {
-              setState(() {
-                game.initializeRound();
-              });
-            },
-            style: const ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(Colors.blue),
-                minimumSize: MaterialStatePropertyAll(Size(120, 40))),
-            child: const Text('Replay'))
+
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    game.initializeRound();
+                  });
+                },
+                style: const ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(Colors.blue),
+                    minimumSize: MaterialStatePropertyAll(Size(100, 40))),
+                child: const Text('Replay')),
+            SizedBox(width: 25),
+            ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                              title: Text('New Game'),
+                              content: Container(
+                                height: 200,
+                                child: Column(children: [
+                                  TextField(
+                                      controller: player1Name,
+                                      decoration: InputDecoration(
+                                        labelText: 'First Player',
+                                      )),
+                                  TextField(
+                                      controller: player2Name,
+                                      decoration: InputDecoration(
+                                        labelText: 'Second Player',
+                                      ))
+                                ]),
+                              ),
+                              actions: <Widget>[
+                                ElevatedButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        game.initializeGame();
+                                        if (player1Name.text.isNotEmpty) {
+                                          game.p1.setName(player1Name.text);
+                                        }
+
+                                        if (player1Name.text.isNotEmpty) {
+                                          game.p2.setName(player2Name.text);
+                                        }
+                                        
+                                      });
+                                      
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text('Start'))
+                              ]);
+                        });
+                },
+                style: const ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(Colors.blue),
+                    minimumSize: MaterialStatePropertyAll(Size(100, 40))),
+                child: const Text('New Game'))
+          ],
+        )
       ],
     );
   }

@@ -1,8 +1,8 @@
 import './player.dart';
 
 class Game {
-  Player p1 = Player('palyer 1', 'X', 0);
-  Player p2 = Player('palyer 2', 'O', 0);
+  Player p1 = Player('Player 1', 'X', 0);
+  Player p2 = Player('Player 2', 'O', 0);
   List<List<int>> matrix = [
     [0, 0, 0],
     [0, 0, 0],

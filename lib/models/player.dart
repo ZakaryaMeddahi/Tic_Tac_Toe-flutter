@@ -6,6 +6,10 @@ class Player {
   Player(this._name, this._choice, this._score);
 
   void setName(String name) {
+    if (name.isEmpty) {
+      _name = 'Player 1';
+      return;
+    }
     _name = name;
   }
 
